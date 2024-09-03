@@ -7,40 +7,58 @@ function getLibraryBuildConfig() {
   return {
     lib: {
       entry: {
-        'fetch-aws-self-mail-aws-sender-request': resolve(
+        'index': resolve(__dirname, './lib/index.ts'),
+        'fetch-aws-self-mail-aws-sender-request/fetch-aws-self-mail-aws-sender-request':
+          resolve(
+            __dirname,
+            './lib/fetch-aws-self-mail-aws-sender-request/fetch-aws-self-mail-aws-sender-request.ts',
+          ),
+        'env/env-ses-self-mail-sender-manager': resolve(
           __dirname,
-          `./lib/fetch-aws-self-mail-aws-sender-request/fetch-aws-self-mail-aws-sender-request.ts`,
-        ),
-        'env-ses-self-mail-sender-manager': resolve(
-          __dirname,
-          `./lib/env/env-ses-self-mail-sender-manager.ts`,
+          './lib/env/env-ses-self-mail-sender-manager.ts',
         ),
       },
       formats: ['es', 'cjs'] as LibraryFormats[],
     },
     rollupOptions: {
-      output: {
-        entryFileNames: '[name].[format].js',
-        dir: 'dist',
-        plugins: [
-          terser({
-            compress: {
-              drop_console: true,
-              drop_debugger: true,
-              passes: 3,
-              pure_funcs: ['console.log'],
+      output: [
+        {
+          entryFileNames: '[name].esm.mjs',
+          format: 'es',
+          dir: 'dist',
+          sourcemap: true,
+        },
+        {
+          entryFileNames: '[name].esm.js',
+          format: 'es',
+          dir: 'dist',
+          sourcemap: true,
+        },
+        {
+          entryFileNames: '[name].cjs.js',
+          format: 'cjs',
+          dir: 'dist',
+          sourcemap: true,
+        },
+      ],
+      plugins: [
+        terser({
+          compress: {
+            drop_console: true,
+            drop_debugger: true,
+            passes: 3,
+            pure_funcs: ['console.log'],
+          },
+          mangle: {
+            properties: {
+              regex: /^_/,
             },
-            mangle: {
-              properties: {
-                regex: /^_/,
-              },
-            },
-            format: {
-              comments: false,
-            },
-          }),
-        ],
-      },
+          },
+          format: {
+            comments: false,
+          },
+        }),
+      ],
     },
     minify: 'terser',
     target: 'esnext',
@@ -55,6 +73,8 @@ export default defineConfig({
   plugins: [
     dts({
       insertTypesEntry: true,
+      tsconfigPath: './tsconfig.json',
+      include: ['./lib/**/*'],
     }),
   ],
 })

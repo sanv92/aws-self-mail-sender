@@ -2,7 +2,7 @@
   "name": "aws-self-mail-sender",
   "description": "A simple utility for sending an email to yourself using AWS SES, perfect for use in 'Contact Us' forms and similar scenarios. This package provides an easy-to-use function to send emails directly to your inbox, ensuring that you don't miss important messages from your users.",
   "private": false,
-  "version": "1.0.2",
+  "version": "1.0.3",
   "type": "commonjs",
   "keywords": [
     "AWS",
@@ -31,33 +31,58 @@
   "module": "./dist/index.es.js",
   "types": "./dist/types.d.ts",
   "exports": {
+    "./index": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.esm.mjs"
+      },
+      "worker": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.esm.js"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.cjs.js"
+      }
+    },
     "./fetch-aws-self-mail-aws-sender-request": {
-      "import": "./dist/fetch-aws-self-mail-aws-sender-request.es.js",
-      "require": "./dist/fetch-aws-self-mail-aws-sender-request.cjs.js"
+      "import": {
+        "types": "./dist/fetch-aws-self-mail-aws-sender-request/fetch-aws-self-mail-aws-sender-request.d.ts",
+        "default": "./dist/fetch-aws-self-mail-aws-sender-request/fetch-aws-self-mail-aws-sender-request.esm.mjs"
+      },
+      "worker": {
+        "types": "./dist/fetch-aws-self-mail-aws-sender-request/fetch-aws-self-mail-aws-sender-request.d.ts",
+        "default": "./dist/fetch-aws-self-mail-aws-sender-request/fetch-aws-self-mail-aws-sender-request.esm.js"
+      },
+      "require": {
+        "types": "./dist/fetch-aws-self-mail-aws-sender-request/fetch-aws-self-mail-aws-sender-request.d.ts",
+        "default": "./dist/fetch-aws-self-mail-aws-sender-request/fetch-aws-self-mail-aws-sender-request.cjs.js"
+      }
     },
     "./env-ses-self-mail-sender-manager": {
-      "import": "./dist/env-ses-self-mail-sender-manager.es.js",
-      "require": "./dist/env-ses-self-mail-sender-manager.cjs.js"
-    },
-    "./types": "./dist/types.d.ts"
-  },
-  "typesVersions": {
-    "*": {
-      "*": [
-        "dist/*"
-      ]
+      "import": {
+        "types": "./dist/env/env-ses-self-mail-sender-manager.d.ts",
+        "default": "./dist/env/env-ses-self-mail-sender-manager.esm.mjs"
+      },
+      "worker": {
+        "types": "./dist/env/env-ses-self-mail-sender-manager.d.ts",
+        "default": "./dist/env-ses-self-mail-sender-manager.esm.js"
+      },
+      "require": {
+        "types": "./dist/env/env-ses-self-mail-sender-manager.d.ts",
+        "default": "./dist/env/env-ses-self-mail-sender-manager.cjs.js"
+      }
     }
   },
   "scripts": {
     "dev": "vite",
-    "build:tsc": "tsc",
     "build:vite": "vite build",
-    "build": "npm run build:tsc && npm run build:vite"
+    "build": "rimraf ./dist && npm run build:vite"
   },
   "dependencies": {
+    "aws4fetch": "^1.0.20",
     "dedent": "^1.5.3",
-    "fast-xml-parser": "^4.4.1",
-    "rollup-plugin-terser": "^7.0.2"
+    "fast-xml-parser": "^4.4.1"
   },
   "devDependencies": {
     "@remix-run/eslint-config": "^2.11.2",
@@ -72,6 +97,7 @@
     "prettier": "^3.3.3",
     "process": "^0.11.10",
     "rimraf": "^6.0.1",
+    "rollup-plugin-terser": "^7.0.2",
     "typescript": "^5.1.6",
     "vite": "^5.4.2",
     "vite-plugin-dts": "^4.1.0"

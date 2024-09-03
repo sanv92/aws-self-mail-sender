@@ -9,15 +9,16 @@
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "declaration": true,  // Включаем генерацию .d.ts файлов
-    "declarationDir": "./dist",  // Указываем директорию для .d.ts файлов
-    "emitDeclarationOnly": true,  // Генерируем только .d.ts файлы
-    "outDir": "./dist",  // Директория для всех выходных файлов
-    "rootDir": "./lib",  // Указываем корневую директорию
+    "declaration": true,
+    "declarationDir": "./dist",
+    "emitDeclarationOnly": true,
+    "outDir": "./dist",
+    "rootDir": "./lib",
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "declarationMap": true
   },
   "include": [
     "./lib/**/*.ts",
