@@ -1,3 +1,6 @@
+// @ts-ignore
+import process from 'process'
+
 const createEnvSESSelfMailSenderManager = () => {
   let env: Env
 
