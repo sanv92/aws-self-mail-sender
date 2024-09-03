@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "skipLibCheck": true,
+    "moduleResolution": "Node",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "declaration": true,  // Включаем генерацию .d.ts файлов
+    "declarationDir": "./dist",  // Указываем директорию для .d.ts файлов
+    "emitDeclarationOnly": true,  // Генерируем только .d.ts файлы
+    "outDir": "./dist",  // Директория для всех выходных файлов
+    "rootDir": "./lib",  // Указываем корневую директорию
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": [
+    "./lib/**/*.ts",
+    "./index.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}

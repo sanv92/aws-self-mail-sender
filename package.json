@@ -1,0 +1,79 @@
+{
+  "name": "aws-self-mail-sender",
+  "description": "A simple utility for sending an email to yourself using AWS SES, perfect for use in 'Contact Us' forms and similar scenarios. This package provides an easy-to-use function to send emails directly to your inbox, ensuring that you don't miss important messages from your users.",
+  "private": false,
+  "version": "1.0.2",
+  "type": "commonjs",
+  "keywords": [
+    "AWS",
+    "SES",
+    "email",
+    "self-mail",
+    "contact-form",
+    "contact-us",
+    "Node.js",
+    "serverless",
+    "email-sender",
+    "email-utility",
+    "simple-email-service",
+    "AWS SES",
+    "email automation",
+    "notification",
+    "message"
+  ],
+  "files": [
+    "dist",
+    "index.d.ts",
+    "README.md",
+    "LICENSE"
+  ],
+  "main": "./dist/index.cjs.js",
+  "module": "./dist/index.es.js",
+  "types": "./dist/types.d.ts",
+  "exports": {
+    "./fetch-aws-self-mail-aws-sender-request": {
+      "import": "./dist/fetch-aws-self-mail-aws-sender-request.es.js",
+      "require": "./dist/fetch-aws-self-mail-aws-sender-request.cjs.js"
+    },
+    "./env-ses-self-mail-sender-manager": {
+      "import": "./dist/env-ses-self-mail-sender-manager.es.js",
+      "require": "./dist/env-ses-self-mail-sender-manager.cjs.js"
+    },
+    "./types": "./dist/types.d.ts"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "dist/*"
+      ]
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build:tsc": "tsc",
+    "build:vite": "vite build",
+    "build": "npm run build:tsc && npm run build:vite"
+  },
+  "dependencies": {
+    "dedent": "^1.5.3",
+    "fast-xml-parser": "^4.4.1",
+    "rollup-plugin-terser": "^7.0.2"
+  },
+  "devDependencies": {
+    "@remix-run/eslint-config": "^2.11.2",
+    "@types/eslint": "^9.6.1",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^22.5.1",
+    "@typescript-eslint/eslint-plugin": "^8.4.0",
+    "@typescript-eslint/parser": "^8.4.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.3.3",
+    "process": "^0.11.10",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.1.6",
+    "vite": "^5.4.2",
+    "vite-plugin-dts": "^4.1.0"
+  }
+}
