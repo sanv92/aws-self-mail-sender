@@ -2,7 +2,7 @@
   "name": "aws-self-mail-sender",
   "description": "A simple utility for sending an email to yourself using AWS SES, perfect for use in 'Contact Us' forms and similar scenarios. This package provides an easy-to-use function to send emails directly to your inbox, ensuring that you don't miss important messages from your users.",
   "private": false,
-  "version": "1.0.3",
+  "version": "1.0.4",
   "type": "commonjs",
   "keywords": [
     "AWS",
