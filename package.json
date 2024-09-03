@@ -31,7 +31,7 @@
   "module": "./dist/index.es.js",
   "types": "./dist/types.d.ts",
   "exports": {
-    "./index": {
+    ".": {
       "import": {
         "types": "./dist/index.d.ts",
         "default": "./dist/index.esm.mjs"
