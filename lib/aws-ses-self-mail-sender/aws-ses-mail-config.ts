@@ -11,7 +11,7 @@ const emailFrom: FieldOptions = {
   required: true,
   validation: true,
   minLength: 3,
-  maxLength: 78,
+  maxLength: 254,
   pattern: ValidationRules.EmailPattern,
   errorMessage: 'Please provide a valid email address.',
 }
