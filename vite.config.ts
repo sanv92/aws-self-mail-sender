@@ -8,11 +8,10 @@ function getLibraryBuildConfig() {
     lib: {
       entry: {
         'index': resolve(__dirname, './lib/index.ts'),
-        'fetch-aws-self-mail-aws-sender-request/fetch-aws-self-mail-aws-sender-request':
-          resolve(
-            __dirname,
-            './lib/aws-ses-self-mail-sender/aws-ses-self-mail-sender.ts',
-          ),
+        'aws-ses-self-mail-sender/aws-ses-self-mail-sender': resolve(
+          __dirname,
+          './lib/aws-ses-self-mail-sender/aws-ses-self-mail-sender.ts',
+        ),
         'env/env-ses-self-mail-sender-manager': resolve(
           __dirname,
           './lib/env/env-aws-ses-self-mail-sender-manager.ts',

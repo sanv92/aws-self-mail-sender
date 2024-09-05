@@ -2,7 +2,7 @@
   "name": "aws-self-mail-sender",
   "description": "A simple utility for sending an email to yourself using AWS SES, perfect for use in 'Contact Us' forms and similar scenarios. This package provides an easy-to-use function to send emails directly to your inbox, ensuring that you don't miss important messages from your users.",
   "private": false,
-  "version": "1.0.7",
+  "version": "1.0.8",
   "type": "commonjs",
   "keywords": [
     "AWS",
@@ -45,18 +45,18 @@
         "default": "./dist/index.cjs.js"
       }
     },
-    "./fetch-aws-self-mail-aws-sender-request": {
+    "./aws-ses-self-mail-sender": {
       "import": {
-        "types": "./dist/fetch-aws-self-mail-aws-sender-request/fetch-aws-self-mail-aws-sender-request.d.ts",
-        "default": "./dist/fetch-aws-self-mail-aws-sender-request/fetch-aws-self-mail-aws-sender-request.esm.mjs"
+        "types": "./dist/aws-ses-self-mail-sender/aws-ses-self-mail-sender.d.ts",
+        "default": "./dist/aws-ses-self-mail-sender/aws-ses-self-mail-sender.esm.mjs"
       },
       "worker": {
-        "types": "./dist/fetch-aws-self-mail-aws-sender-request/fetch-aws-self-mail-aws-sender-request.d.ts",
-        "default": "./dist/fetch-aws-self-mail-aws-sender-request/fetch-aws-self-mail-aws-sender-request.esm.js"
+        "types": "./dist/aws-ses-self-mail-sender/aws-ses-self-mail-sender.d.ts",
+        "default": "./dist/aws-ses-self-mail-sender/aws-ses-self-mail-sender.esm.js"
       },
       "require": {
-        "types": "./dist/fetch-aws-self-mail-aws-sender-request/fetch-aws-self-mail-aws-sender-request.d.ts",
-        "default": "./dist/fetch-aws-self-mail-aws-sender-request/fetch-aws-self-mail-aws-sender-request.cjs.js"
+        "types": "./dist/aws-ses-self-mail-sender/aws-ses-self-mail-sender.d.ts",
+        "default": "./dist/aws-ses-self-mail-sender/aws-ses-self-mail-sender.cjs.js"
       }
     },
     "./env-ses-self-mail-sender-manager": {
