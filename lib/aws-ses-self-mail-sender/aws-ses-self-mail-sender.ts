@@ -6,7 +6,7 @@ import { formatMailMessageBody } from './aws-ses-mail-message'
 import { validateEmailRequest } from './aws-ses-mail-request-validation'
 import type { DefaultFieldOptions, EmailRequest } from './types'
 
-interface EmailResponse {
+export interface EmailResponse {
   success: boolean
   message: string
   errors: { field: string; errorMessage: string }[]
