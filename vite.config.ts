@@ -11,11 +11,11 @@ function getLibraryBuildConfig() {
         'fetch-aws-self-mail-aws-sender-request/fetch-aws-self-mail-aws-sender-request':
           resolve(
             __dirname,
-            './lib/fetch-aws-self-mail-aws-sender-request/fetch-aws-self-mail-aws-sender-request.ts',
+            './lib/aws-ses-self-mail-sender/aws-ses-self-mail-sender.ts',
           ),
         'env/env-ses-self-mail-sender-manager': resolve(
           __dirname,
-          './lib/env/env-ses-self-mail-sender-manager.ts',
+          './lib/env/env-aws-ses-self-mail-sender-manager.ts',
         ),
       },
       formats: ['es', 'cjs'] as LibraryFormats[],

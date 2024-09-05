@@ -1,4 +1,4 @@
-import { EnvSESSelfMailSenderManager } from '../env'
+import { EnvAwsSesSelfMailSenderManager } from '../env'
 
 interface AWSConfiguration {
   AWS_REGION: string
@@ -7,7 +7,7 @@ interface AWSConfiguration {
 }
 
 export const awsConfiguration = (): AWSConfiguration => {
-  const AWS_REGION = EnvSESSelfMailSenderManager.getAwsRegion()
+  const AWS_REGION = EnvAwsSesSelfMailSenderManager.getAwsRegion()
   if (!AWS_REGION) {
     throw new Error('AWS_REGION')
   }
@@ -16,7 +16,7 @@ export const awsConfiguration = (): AWSConfiguration => {
     throw new Error('AWS_REGION')
   }
 
-  const AWS_ACCESS_KEY_ID = EnvSESSelfMailSenderManager.getAwsAccessKeyId()
+  const AWS_ACCESS_KEY_ID = EnvAwsSesSelfMailSenderManager.getAwsAccessKeyId()
   if (!AWS_ACCESS_KEY_ID) {
     throw new Error('AWS_ACCESS_KEY_ID')
   }
@@ -26,7 +26,7 @@ export const awsConfiguration = (): AWSConfiguration => {
   }
 
   const AWS_SECRET_ACCESS_KEY =
-    EnvSESSelfMailSenderManager.getAwsSecretAccessKey()
+    EnvAwsSesSelfMailSenderManager.getAwsSecretAccessKey()
   if (!AWS_SECRET_ACCESS_KEY) {
     throw new Error('AWS_SECRET_ACCESS_KEY')
   }

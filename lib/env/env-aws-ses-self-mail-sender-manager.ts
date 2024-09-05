@@ -1,7 +1,7 @@
 // @ts-ignore
 import process from 'process'
 
-const createEnvSESSelfMailSenderManager = () => {
+const createEnvAwsSesSelfMailSenderManager = () => {
   let env: Env
 
   return {
@@ -28,17 +28,16 @@ const createEnvSESSelfMailSenderManager = () => {
         getEnvFromProcess('AWS_SECRET_ACCESS_KEY', '')
       )
     },
-    getAwsSESSelfEmailTo: (): string => {
+    getAwsSesEmailTo: (): string => {
+      return env.AWS_SES_EMAIL_TO || getEnvFromProcess('AWS_SES_EMAIL_TO', '')
+    },
+    getAwsSesEmailName: (): string => {
       return (
-        env.AWS_SES_SELF_EMAIL_TO ||
-        getEnvFromProcess('AWS_SES_SELF_EMAIL_TO', '')
+        env.AWS_SES_EMAIL_NAME || getEnvFromProcess('AWS_SES_EMAIL_NAME', '')
       )
     },
-    getAwsSESSelfEmailToName: (): string => {
-      return (
-        env.AWS_SES_SELF_EMAIL_NAME ||
-        getEnvFromProcess('AWS_SES_SELF_EMAIL_NAME', '')
-      )
+    getAwsSesSubject: (): string => {
+      return env.AWS_SES_SUBJECT || getEnvFromProcess('AWS_SES_SUBJECT', '')
     },
   }
 }
@@ -53,4 +52,5 @@ const getEnvFromProcess = (key: string, fallback: string = ''): string => {
 const isProcessAvailable = () =>
   typeof process !== 'undefined' && typeof process.env !== 'undefined'
 
-export const EnvSESSelfMailSenderManager = createEnvSESSelfMailSenderManager()
+export const EnvAwsSesSelfMailSenderManager =
+  createEnvAwsSesSelfMailSenderManager()

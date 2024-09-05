@@ -14,11 +14,13 @@
     "emitDeclarationOnly": true,
     "outDir": "./dist",
     "rootDir": "./lib",
-    "strict": true,
+    "strict": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "declarationMap": true
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "allowJs": true
   },
   "include": [
     "./lib/**/*.ts",

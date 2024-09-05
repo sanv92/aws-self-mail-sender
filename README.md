@@ -24,26 +24,47 @@ First, you need to configure your AWS credentials to allow the package to send e
 AWS_REGION=your-aws-region
 AWS_ACCESS_KEY_ID=your-access-key-id
 AWS_SECRET_ACCESS_KEY=your-secret-access-key
-AWS_SES_SELF_EMAIL_TO=your-email@example.com
-AWS_SES_SELF_EMAIL_NAME=Your Name
+
+AWS_SES_EMAIL_TO=your-email@example.com
+AWS_SES_EMAIL_NAME=Your Name
+AWS_SES_SUBJECT=New Contact Us Submission from [Your Website Name]
 ```
 
 ```typescript
-import { fetchAWSSelfMailSenderRequest } from 'aws-self-mail-sender';
+import { awsSesSelfMailSender, LanguageValidationRules, ValidationRules, createValidationRegex } from 'aws-self-mail-sender'
+
+const fieldOptions = {
+  emailFrom: {
+    name: 'Email From',
+    required: true,
+    validation: true,
+    minLength: 1,
+    maxLength: 500,
+    pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/i,
+    errorMessage: 'Please provide a valid email address',
+  },
+  subject: {
+    name: 'Subject',
+    required: false,
+    validation: true,
+    pattern: createValidationRegex(LanguageValidationRules.LatinAlphabetPattern, LanguageValidationRules.EstonianPattern, ValidationRules.SpecialCharacterPattern),
+    errorMessage: 'Please provide a valid subject',
+  },
+}
 
 const emailRequest = {
   emailFrom: 'user@example.com',
   subject: 'Contact Us Form Submission',
   message: 'This is a test message from the contact form.',
-};
+}
 
-fetchAWSSelfMailSenderRequest(emailRequest)
+awsSesSelfMailSender(fieldOptions).sendMail(emailRequest)
   .then((response) => {
     console.log('Email sent successfully:', response);
   })
   .catch((error) => {
     console.error('Error sending email:', error);
-  });
+  })
 ```
 
 ## License

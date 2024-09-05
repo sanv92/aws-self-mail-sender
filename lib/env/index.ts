@@ -1,1 +1,1 @@
-export { EnvSESSelfMailSenderManager } from './env-ses-self-mail-sender-manager'
+export { EnvAwsSesSelfMailSenderManager } from './env-aws-ses-self-mail-sender-manager'
