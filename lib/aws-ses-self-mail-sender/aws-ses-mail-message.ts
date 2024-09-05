@@ -29,7 +29,7 @@ const createMailMessageTemplate = (
 
 const formatMailSenderInfo = (emailRequest: EmailRequest) => {
   const { emailFrom, firstName, lastName, phoneNumber } = emailRequest
-  const { companyName, address, preferredContactMethod } = emailRequest
+  const { companyName, address, preferredContactMethod = [] } = emailRequest
 
   return [
     formatField('First Name', firstName),
